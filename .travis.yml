@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t robihdy/docker-example -f Dockerfile.dev .
+
+script:
+  - docker run robihdy/docker-example npm run test -- --watchAll=false
